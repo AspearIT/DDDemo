@@ -4,14 +4,16 @@ This repo is a simplified example of an event sourced DDD application.
 
 ## The DDD example
 
-In this case you can see how an orderline is added to an order. It's more code than how a regular traditional application would be written to do the same. But the architeture has a lot of advantages when it comes to:
- - write unit tests for this code
- - write domain specific validations / business rules
+In this case you can see how an orderline is added to an order. It's more code than how a regular traditional application would be written to do the same. But the archicteture has a lot of advantages when it comes to:
  - self-explaining code due to the ubiquitous language
+ - write domain specific validations / business rules without being bothered by the storage entities (mysql tables for example)
+ - write unit tests for this code
+ - Manage database queries / performance
 
 ## Event driven
-In this case the domain is event driven. This means that every change made in the domain will cause an event. This will tackle
+In this case the domain is event driven. This means that every change made in the domain will cause an event. This is very useful when it comes to:
  - Separating side effects like confirmation mails, logging, etc. from the domain itself
+ - Having an overview of what can change in the domain
  - Implementing a CQRS architecture. The read structure can keep itself updated by listening to the events.
  - The need for a unit-of-work (see the traditional order repository how you can implement a repository based on events)
 
