@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace AspearIT\DDDemo\Domain\Order\Value;
 
+use Ramsey\Uuid\UuidInterface;
+
 readonly class Product
 {
     /**
@@ -10,11 +12,11 @@ readonly class Product
      * Changes to the product should be handled in a different domain.
      */
     public function __construct(
-        private Uuid $id,
+        private UuidInterface $id,
         private Price $price,
     ) {}
 
-    public function getId(): Uuid
+    public function getId(): UuidInterface
     {
         return $this->id;
     }

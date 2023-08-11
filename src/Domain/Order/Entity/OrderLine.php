@@ -3,25 +3,26 @@ declare(strict_types=1);
 
 namespace AspearIT\DDDemo\Domain\Order\Entity;
 
+use AspearIT\DDDemo\Domain\Order\Value\Price;
+use Ramsey\Uuid\UuidInterface;
+
 class OrderLine
 {
     public function __construct(
-        private readonly Uuid $uuid,
-        private readonly Uuid $productId,
-        private int $amount,
-        private readonly Price $pricePerUnit,
+        private readonly UuidInterface $id,
+        private readonly UuidInterface $productId,
+        private int                    $amount,
+        private readonly Price         $pricePerUnit,
     ) {
-        if ($this->amount <= 0) {
-            throw new \InvalidArgumentException('Amount should be greater than 0');
-        }
+        $this->amountShouldBeAtLeastOne($amount);
     }
 
-    public function getUuid(): Uuid
+    public function getId(): UuidInterface
     {
-        return $this->uuid;
+        return $this->id;
     }
 
-    public function getProductId(): Uuid
+    public function getProductId(): UuidInterface
     {
         return $this->productId;
     }
@@ -34,5 +35,18 @@ class OrderLine
     public function getPricePerUnit(): Price
     {
         return $this->pricePerUnit;
+    }
+
+    public function changeAmount(int $amount): void
+    {
+        $this->amountShouldBeAtLeastOne($amount);
+        $this->amount = $amount;
+    }
+
+    private function amountShouldBeAtLeastOne(int $amount): void
+    {
+        if ($amount <= 0) {
+            throw new \InvalidArgumentException('Amount should be greater than 0');
+        }
     }
 }

@@ -1,0 +1,19 @@
+{
+  "require": {
+    "ramsey/uuid": "^4.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "AspearIT\\DDDemo\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.3",
+    "mockery/mockery": "^1.6"
+  }
+}
