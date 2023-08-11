@@ -7,6 +7,7 @@ use AspearIT\DDDemo\Domain\Order\Exception\LineAmountException;
 use AspearIT\DDDemo\Domain\Order\Exception\OrderNotFoundException;
 use AspearIT\DDDemo\Domain\Order\Exception\ProductNotFoundException;
 use AspearIT\DDDemo\Domain\Order\Service\OrderService;
+use Ramsey\Uuid\Uuid;
 
 readonly class OrderController
 {
