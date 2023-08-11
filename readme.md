@@ -4,7 +4,7 @@ This repo is a simplified example of an event sourced DDD application.
 
 ## The DDD example
 
-In this case you can see how an orderline is added to an order. It's more code than how a regular traditional application would be written to do the same. But the archicteture has a lot of advantages when it comes to:
+In this case you can see how an order line is added or changed. It's more code than how a regular traditional application would be written to do the same. But the archicteture has a lot of advantages when it comes to:
  - self-explaining code due to the ubiquitous language
  - write domain specific validations / business rules without being bothered by the storage entities (mysql tables for example)
  - write unit tests for this code
@@ -25,3 +25,6 @@ With event sourcing you never loose data. Every change in the domain is stored a
 
 The beauty of this architecture is that the domain itself doesn't know how it is stored, so both storage implementations can be used without disturbing the domain itself.
 
+## Unit testing
+
+The test suite contains two basic tests that covers the different cases that can occur in the order line logic
